@@ -1,0 +1,16 @@
+{
+  "name": "minimax-skills",
+  "version": "1.0.0",
+  "description": "MiniMax AIGC skills — text, image, video, speech, music generation",
+  "author": {
+    "name": "AIGC Skills Community"
+  },
+  "homepage": "https://github.com/full-aigc-skills/minimax-skills",
+  "repository": "https://github.com/full-aigc-skills/minimax-skills",
+  "source": "./",
+  "skills": [
+    "./skills/minimax-multimodal-toolkit",
+    "./skills/minimax-music-gen",
+    "./skills/minimax-music-playlist"
+  ]
+}

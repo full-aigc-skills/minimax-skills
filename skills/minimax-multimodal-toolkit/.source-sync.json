@@ -1,0 +1,11 @@
+{
+  "sourceId": "minimax",
+  "remote": "https://github.com/MiniMax-AI/skills.git",
+  "ref": "main",
+  "commit": "60aaae52bb2af8162732751a4332f62a5fef518b",
+  "targetGroup": "minimax-skills",
+  "skill": "minimax-multimodal-toolkit",
+  "upstreamSkill": "minimax-multimodal-toolkit",
+  "slugMode": "preserve",
+  "syncedAt": "2026-05-14T15:17:20Z"
+}
