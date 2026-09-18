@@ -16,7 +16,7 @@
 
 ## 📖 简介
 
-**minimax-skills** 是一组 AI 编码智能体技能，属于 [Full AIGC Skills](https://github.com/full-aigc-skills) 生态。包含 **3 个技能**。
+**minimax-skills** 是一组 AI 编码智能体技能，属于 [Full AIGC Skills](https://github.com/full-aigc-skills) 生态。包含 **11 个技能**。
 
 ## 📦 安装
 
@@ -31,6 +31,14 @@ npx skills add full-aigc-skills/minimax-skills
 | `minimax-multimodal-toolkit` |  Use mmx to generate text, images, video, speech, and music via the MiniMax AI platform. Use when th |
 | `minimax-music-gen` |  Use when user wants to generate music, songs, or audio tracks. Triggers on any request involving mu |
 | `minimax-music-playlist` |  Generate personalized music playlists by analyzing the user's music taste and generation feedback h |
+| 3D Animation Short | `3d-animation-short-generator` | Story-first 3D animated short workflow: brief, outline, character/scene cards, shot table, storyboards, clips, and full assembly. |
+| Brand Promo Video | `brand-promo-video-generator` | Turn verified brand assets and campaign goals into a polished promotional short video. |
+| Co-op Game Intro | `co-op-game-intro-generator` | Two-player co-op game menu/intro animation with player cards and coordinated UI motion. |
+| Handdrawn Live Video | `handdrawn-live-video-generator` | Surreal hand-drawn animation fused with live-action spaces; 15s morph-and-chase prompt. |
+| Minimalist Product Ad | `minimalist-product-ad-generator` | Minimalist product ad shorts for e-commerce: beat-synced typography and premium camera language. |
+| Music Video Subtitle | `music-video-subtitle-generator` | AI music videos with beat-reactive lyric typography; shot decomposition and prompt audit. |
+| Paper Collage Explainer | `paper-collage-explainer-generator` | Tactile paper-collage explainer language for narration and knowledge points with stop-motion clips. |
+| Papercraft Stop Motion | `papercraft-stop-motion-explainer` | Papercraft stop-motion explainer shorts with tactile sound design. |
 
 ## 🤖 支持的智能体
 
