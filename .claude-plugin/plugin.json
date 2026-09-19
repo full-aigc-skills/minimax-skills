@@ -1,6 +1,6 @@
 {
   "name": "minimax-skills",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "MiniMax AIGC skills — text, image, video, speech, music generation",
   "author": {
     "name": "AIGC Skills Community"
@@ -9,8 +9,17 @@
   "repository": "https://github.com/full-aigc-skills/minimax-skills",
   "source": "./",
   "skills": [
+    "./skills/3d-animation-short-generator",
+    "./skills/brand-promo-video-generator",
+    "./skills/co-op-game-intro-generator",
+    "./skills/h3-prompt-writing",
+    "./skills/handdrawn-live-video-generator",
+    "./skills/minimalist-product-ad-generator",
     "./skills/minimax-multimodal-toolkit",
     "./skills/minimax-music-gen",
-    "./skills/minimax-music-playlist"
+    "./skills/minimax-music-playlist",
+    "./skills/music-video-subtitle-generator",
+    "./skills/paper-collage-explainer-generator",
+    "./skills/papercraft-stop-motion-explainer"
   ]
 }

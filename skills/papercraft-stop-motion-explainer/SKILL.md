@@ -6,25 +6,8 @@ compatibility: Portable — runs on any agent harness with shell access. Generat
 
 ## Tool mapping (mmx-cli edition)
 
-This skill is the mmx-cli adaptation of the MiniMax-H3 Hub skill of the same
-name: the creative methodology is unchanged, while Hub canvas tools are replaced
-by the following portable equivalents.
-
-| Hub tool | mmx-cli / portable equivalent |
-|---|---|
-| `hub_generate_image` | `mmx image generate --prompt "..." --out <path>` |
-| `hub_generate_video` | `mmx video generate --prompt "..." --out <path>` (Hailuo; see `mmx video generate --help` for duration/model flags) |
-| `hub_generate_audio` / `hub_synthesize_speech` | `mmx speech synthesize --text "..." --out <path.mp3>` |
-| `hub_generate_music` | the `minimax-music-gen` skill (MiniMax music API; mmx has no music command) |
-| `hub_video_edit` | ffmpeg assembly (concat / xfade / audio mix) — deterministic, offline |
-| `hub_analyse_media` | `ffprobe` + `mmx vision describe <file>` |
-| `hub_image_search` | user-provided assets first; `mmx search query "..."` for public references |
-| `hub_canvas_get_node` / `hub_canvas_group_recent_outputs` | the episode working directory: `assets-manifest.md`, `outputs/`, `decisions.md` ledger files |
-| choice cards | numbered options presented in chat, choice recorded in `decisions.md` |
-
-Prerequisites: `npm install -g mmx-cli` and `mmx auth login --api-key sk-xxx`
-(region auto-detected; `mmx quota` shows the Token Plan balance). ffmpeg/ffprobe
-must be on PATH for assembly and inspection.
+Read `references/tool-mapping.md` before the first execution or whenever a Hub
+tool name must be translated to its portable `mmx`/FFmpeg equivalent.
 
 # Papercraft Stop-Motion Explainer
 
@@ -33,6 +16,26 @@ Create a complete papercraft stop-motion explainer package from a science, educa
 Use this Skill when the user wants a tactile handmade explainer style: layered paper, cardboard cutouts, miniature diorama, stop-motion puppet movement, pop-up-book staging, paper props, and physical shadows. The default assumption is that the user wants a complete explainer video package. Prompts, storyboards, asset plans, and motion notes are reviewable production assets inside that complete process, not isolated deliverables unless the user says so.
 
 When this Skill proceeds from planning/prompting into actual video generation, use MiniMax-H3 as the default video generation model. Treat MiniMax-H3 as the default unless the user explicitly selects another available model or MiniMax-H3 is unavailable.
+
+## When to use（什么时候使用）
+
+当用户需要纸艺定格风格的知识讲解、分镜、提示词或完整视频方案时使用。先确认受众、知识目标、时长、画幅和交付类型；范围更窄时走下方轻量路径。
+
+## Rules
+
+- 规划不等于生成；只有在用户明确要求并批准预算后才调用付费生成。
+- 所有资产保留来源、模型、请求标识和输出路径，不把缺失证据标为完成。
+- 任何凭据只通过受支持的本地认证入口提供，不写入方案、提示词或日志。
+
+## 不适用与边界
+
+不适用于普通二维卡通、真人拍摄、无纸艺外观的解释视频，也不替用户购买额度、接受条款、公开发布或自动扩大生成次数。
+
+## Gotchas
+
+1. **纸质纹理不等于纸艺运动**：必须同时验证分层、物理阴影和逐帧机械感。
+2. **长方案挤占对话**：完整方案写入项目文档，对话只保留摘要和决策点。
+3. **超时后重复生成**：先按请求标识查询状态，结果不明确时禁止自动重提。
 
 
 ## Canvas Document Delivery Rule
@@ -88,7 +91,7 @@ Use choices like:
 
 Keep each card short. Include the recommended option first when the current result is strong. This staged confirmation protects the full-video workflow: the user can adjust each asset before it becomes the basis for the next step.
 
-## STEP 1: Understand the Input
+## Step 1: Understand the Input
 
 Analyze the user's topic and production goal. Preserve the user's domain words and do not simplify the science into a different topic.
 
@@ -104,7 +107,7 @@ Output a concise understanding block:
 
 If crucial information is missing, choose reasonable defaults instead of stopping: general audience, 30-second short, horizontal 16:9 video by default unless the user specifies another ratio, and one paper narrator plus one core paper model.
 
-## STEP 2: Summarize the Style DNA
+## Step 2: Summarize the Style DNA
 
 Before designing the video, state the style rules that must stay consistent.
 
@@ -125,7 +128,7 @@ Include these traits:
 
 Explain the reason: the paper medium turns abstract science into touchable objects and makes layered explanation easy to understand. The scene must feel physically built and animated frame by frame, not merely illustrated in a paper-like texture.
 
-## STEP 3: Propose 3-5 Creative Directions
+## Step 3: Propose 3-5 Creative Directions
 
 Generate 3 to 5 distinct concepts. Each direction must explain the same topic through a different visual metaphor or narrative structure.
 
@@ -150,7 +153,7 @@ Recommended direction archetypes:
 4. Miniature nature theater: ecological, geographic, or astronomical topics unfold in a paper landscape.
 5. Paper mechanism board: gears, arrows, sliders, labels, and moving parts explain cause and effect.
 
-## STEP 4: Design Paper Characters
+## Step 4: Design Paper Characters
 
 Design characters only when they help communication. A character may be a host, assistant, animal guide, personified molecule, immune cell, planet, machine part, or natural force.
 
@@ -165,7 +168,7 @@ For each character, output:
 
 Keep characters simple enough to remain readable in short videos.
 
-## STEP 5: Design Paper Scenes
+## Step 5: Design Paper Scenes
 
 Treat every scene as a physical paper stage, not a flat background.
 
@@ -182,7 +185,7 @@ For each scene, output:
 
 Use at least four depth planes whenever possible. Keep the main knowledge model separated from the background through spacing and shadow.
 
-## STEP 6: Plan Layered Diorama Staging
+## Step 6: Plan Layered Diorama Staging
 
 Create a multi-plane staging table.
 
@@ -204,7 +207,7 @@ Rules:
 - Keep the core concept in the midground, where attention is strongest.
 - Use layer separation to explain hierarchy, sequence, anatomy, causality, or scale.
 
-## STEP 7: Plan Prop and Asset Library
+## Step 7: Plan Prop and Asset Library
 
 Create an asset list grouped by function.
 
@@ -227,7 +230,7 @@ For each asset, define:
 - Appearance timing
 - Consistency notes
 
-## STEP 8: Plan or Generate 1-3 Visual Preview Images
+## Step 8: Plan or Generate 1-3 Visual Preview Images
 
 Before writing final prompts or storyboards, plan 1 to 3 visual preview images based on the approved creative direction, character design, scene design, and layered staging. If image generation is available and the user wants actual previews, generate them; otherwise provide preview briefs and prompts. These previews are for style and concept confirmation, not final production frames.
 
@@ -248,7 +251,7 @@ Recommended preview set:
 
 After presenting previews, pause with a confirmation card. Offer choices such as: continue to prompt writing, revise preview 1, revise preview 2, revise preview 3, reduce to one visual direction, or switch creative direction. Do not write final single-image, image-series, or 5-second image-to-video prompts until the user confirms the visual preview direction.
 
-## STEP 9: Write Single-Image Prompt
+## Step 9: Write Single-Image Prompt
 
 Create a prompt for one concept image or key visual.
 
@@ -265,7 +268,7 @@ The prompt must include:
 
 Avoid overloading the image with every knowledge detail. One image should communicate one main idea.
 
-## STEP 10: Write Image-Series Prompts
+## Step 10: Write Image-Series Prompts
 
 Create a sequence of prompts when the user needs multiple keyframes or a storyboard image set.
 
@@ -284,7 +287,7 @@ Series rules:
 - Preserve domain-specific words from the user's topic in every prompt.
 - Use the same aspect ratio across the series unless the user requests variations.
 
-## STEP 11: Write 5-Second Image-to-Video Prompt
+## Step 11: Write 5-Second Image-to-Video Prompt
 
 Create a short prompt that animates a single reference image while preserving the paper style.
 
@@ -299,7 +302,7 @@ Include:
 
 Keep motion limited and physically plausible for paper objects.
 
-## STEP 12: Create Storyboard for the Chosen Duration
+## Step 12: Create Storyboard for the Chosen Duration
 
 Use the duration chosen after the creative directions phase. Do not present three full storyboard versions by default. First give a brief content overview, then provide a concise storyboard table for the chosen duration only.
 
@@ -330,7 +333,7 @@ Required columns:
 
 After the table, ask the user with a confirmation card: continue to editing rhythm and camera rules, revise storyboard, change duration, or return to visual previews.
 
-## STEP 13: Define Editing Rhythm
+## Step 13: Define Editing Rhythm
 
 Set the rhythm according to duration and educational clarity.
 
@@ -343,7 +346,7 @@ Guidelines:
 - Do not cut before the viewer understands the paper mechanism.
 - Use rhythmic paper movements instead of aggressive digital edits.
 
-## STEP 14: Define Camera Rules
+## Step 14: Define Camera Rules
 
 Use camera movement that feels like filming a miniature paper stage.
 
@@ -364,7 +367,7 @@ Avoid:
 - Liquid morphing
 - Hyper-real CG camera behavior
 
-## STEP 15: Define Transitions
+## Step 15: Define Transitions
 
 Use transitions that obey paper physics.
 
@@ -383,7 +386,7 @@ Recommended transitions:
 
 Avoid electronic scanlines, neon glitches, glass shatter, metallic wipes, and sci-fi particle transitions unless the user explicitly requests a contrast effect.
 
-## STEP 16: Define Sound Design
+## Step 16: Define Sound Design
 
 Build a tactile handmade sound palette.
 
@@ -414,7 +417,7 @@ Paper-motion SFX direction:
 - Use SFX sparingly as tactile accents. They should make paper motion feel physical, not become exaggerated cartoon sounds.
 - Map SFX to the storyboard timeline before final mixing so action, narration, and sound reinforce each other.
 
-## STEP 17: Generate and Clean Voiceover Audio
+## Step 17: Generate and Clean Voiceover Audio
 
 When the workflow includes narration, generate the voiceover after the script is confirmed. Then check the generated audio before final assembly.
 
@@ -426,7 +429,7 @@ Voiceover rules:
 - If tail noise exists, repair the existing audio first: trim the noisy tail and add a short fade-out. Prefer repair over regenerating when the voice performance is otherwise good.
 - If regenerating, explicitly request a clean ending with no tail noise, but still verify after generation.
 
-## STEP 18: Provide Negative Prompts
+## Step 18: Provide Negative Prompts
 
 Always include a concise negative prompt block to protect the style.
 
@@ -450,7 +453,7 @@ Recommended negatives:
 - high-speed camera orbit
 - melting or liquid morphing
 
-## STEP 19: Run Review Checklist
+## Step 19: Run Review Checklist
 
 End with a checklist. Mark problems only when they matter to the user's requested output.
 

@@ -16,7 +16,7 @@
 
 ## 📖 简介
 
-**minimax-skills** 是一组 AI 编码智能体技能，属于 [Full AIGC Skills](https://github.com/full-aigc-skills) 生态。包含 **11 个技能**。
+**minimax-skills** 是一组 AI 编码智能体技能，属于 [Full AIGC Skills](https://github.com/full-aigc-skills) 生态。包含 **12 个可独立安装的技能**。
 
 ## 📦 安装
 
@@ -24,21 +24,22 @@
 npx skills add full-aigc-skills/minimax-skills
 ```
 
-## 🎯 技能列表 (3)
+## 🎯 技能列表 (12)
 
 | 技能 | 描述 |
 |------|------|
-| `minimax-multimodal-toolkit` |  Use mmx to generate text, images, video, speech, and music via the MiniMax AI platform. Use when th |
-| `minimax-music-gen` |  Use when user wants to generate music, songs, or audio tracks. Triggers on any request involving mu |
-| `minimax-music-playlist` |  Generate personalized music playlists by analyzing the user's music taste and generation feedback h |
-| 3D Animation Short | `3d-animation-short-generator` | Story-first 3D animated short workflow: brief, outline, character/scene cards, shot table, storyboards, clips, and full assembly. |
-| Brand Promo Video | `brand-promo-video-generator` | Turn verified brand assets and campaign goals into a polished promotional short video. |
-| Co-op Game Intro | `co-op-game-intro-generator` | Two-player co-op game menu/intro animation with player cards and coordinated UI motion. |
-| Handdrawn Live Video | `handdrawn-live-video-generator` | Surreal hand-drawn animation fused with live-action spaces; 15s morph-and-chase prompt. |
-| Minimalist Product Ad | `minimalist-product-ad-generator` | Minimalist product ad shorts for e-commerce: beat-synced typography and premium camera language. |
-| Music Video Subtitle | `music-video-subtitle-generator` | AI music videos with beat-reactive lyric typography; shot decomposition and prompt audit. |
-| Paper Collage Explainer | `paper-collage-explainer-generator` | Tactile paper-collage explainer language for narration and knowledge points with stop-motion clips. |
-| Papercraft Stop Motion | `papercraft-stop-motion-explainer` | Papercraft stop-motion explainer shorts with tactile sound design. |
+| `3d-animation-short-generator` | 以故事为核心生成 3D 动画短片方案，并设置生成与组装门禁。 |
+| `brand-promo-video-generator` | 从已验证品牌素材和传播目标制作品牌宣传短片。 |
+| `co-op-game-intro-generator` | 设计双人合作游戏菜单与开场动画。 |
+| `h3-prompt-writing` | 在范围和安全约束下编写结构化 MiniMax H3 提示词。 |
+| `handdrawn-live-video-generator` | 规划手绘动画与实拍空间融合的视频。 |
+| `minimalist-product-ad-generator` | 构建极简产品广告短片、节奏字幕与镜头语言。 |
+| `minimax-multimodal-toolkit` | 路由 MiniMax 文本、图像、视频、语音和音乐任务。 |
+| `minimax-music-gen` | 在模型、预算和产物验证门禁下生成音乐。 |
+| `minimax-music-playlist` | 根据用户偏好和反馈创建个性化生成音乐歌单。 |
+| `music-video-subtitle-generator` | 制作随节拍变化的歌词排版和音乐视频方案。 |
+| `paper-collage-explainer-generator` | 创建纸张拼贴知识解释方案和定格动画片段。 |
+| `papercraft-stop-motion-explainer` | 创建多层纸艺舞台与触感声音设计的定格解释视频。 |
 
 ## 🤖 支持的智能体
 

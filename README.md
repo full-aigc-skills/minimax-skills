@@ -20,7 +20,7 @@ English | [简体中文](./README.zh-CN.md)
 
 **minimax-skills** is a curated collection of Agent Skills for AI coding agents, part of the [Full AIGC Skills](https://github.com/full-aigc-skills) ecosystem.
 
-This package includes **11 skills**. Each skill is a self-contained `SKILL.md` file that AI agents load on-demand.
+This package includes **12 skills**. Each skill is a self-contained skill tree that AI agents can install and load on demand.
 
 ## 📦 Install
 
@@ -30,21 +30,22 @@ npx skills add full-aigc-skills/minimax-skills
 
 Or install specific skills: `npx skills add full-aigc-skills/minimax-skills --skill <skill-name>`
 
-## 🎯 Skills (3)
+## 🎯 Skills (12)
 
 | Skill | Description |
 |-------|-------------|
-| `minimax-multimodal-toolkit` |  Use mmx to generate text, images, video, speech, and music via the MiniMax AI platform. Use when th |
-| `minimax-music-gen` |  Use when user wants to generate music, songs, or audio tracks. Triggers on any request involving mu |
-| `minimax-music-playlist` |  Generate personalized music playlists by analyzing the user's music taste and generation feedback h |
-| 3D Animation Short | `3d-animation-short-generator` | Story-first 3D animated short workflow: brief, outline, character/scene cards, shot table, storyboards, clips, and full assembly. |
-| Brand Promo Video | `brand-promo-video-generator` | Turn verified brand assets and campaign goals into a polished promotional short video. |
-| Co-op Game Intro | `co-op-game-intro-generator` | Two-player co-op game menu/intro animation with player cards and coordinated UI motion. |
-| Handdrawn Live Video | `handdrawn-live-video-generator` | Surreal hand-drawn animation fused with live-action spaces; 15s morph-and-chase prompt. |
-| Minimalist Product Ad | `minimalist-product-ad-generator` | Minimalist product ad shorts for e-commerce: beat-synced typography and premium camera language. |
-| Music Video Subtitle | `music-video-subtitle-generator` | AI music videos with beat-reactive lyric typography; shot decomposition and prompt audit. |
-| Paper Collage Explainer | `paper-collage-explainer-generator` | Tactile paper-collage explainer language for narration and knowledge points with stop-motion clips. |
-| Papercraft Stop Motion | `papercraft-stop-motion-explainer` | Papercraft stop-motion explainer shorts with tactile sound design. |
+| `3d-animation-short-generator` | Story-first 3D animated short production with bounded generation and assembly gates. |
+| `brand-promo-video-generator` | Produce brand promotional shorts from verified brand assets and campaign goals. |
+| `co-op-game-intro-generator` | Design two-player co-op game menu and intro animations with coordinated UI motion. |
+| `h3-prompt-writing` | Write structured prompts for MiniMax H3 while preserving scope and safety constraints. |
+| `handdrawn-live-video-generator` | Plan surreal hand-drawn animation fused with live-action spaces. |
+| `minimalist-product-ad-generator` | Build minimalist product-ad shorts with beat-synced typography and camera direction. |
+| `minimax-multimodal-toolkit` | Route MiniMax text, image, video, speech and music tasks through the portable toolchain. |
+| `minimax-music-gen` | Generate music with explicit model, budget and artifact verification gates. |
+| `minimax-music-playlist` | Create a personalized generated-music playlist from user taste and feedback. |
+| `music-video-subtitle-generator` | Produce music-video plans with beat-reactive lyric typography and prompt audits. |
+| `paper-collage-explainer-generator` | Create tactile paper-collage explainer plans and stop-motion clips. |
+| `papercraft-stop-motion-explainer` | Create papercraft stop-motion explainers with layered staging and tactile sound design. |
 
 ## 🤖 Supported Agents
 
