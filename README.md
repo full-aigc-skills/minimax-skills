@@ -76,6 +76,81 @@ For more details, see the [Claude Code Skills Guide](https://code.claude.com/doc
 | **Agent Skills Spec** | [agentskills.io](https://agentskills.io) |
 | **Skills CLI** | [github.com/vercel-labs/skills](https://github.com/vercel-labs/skills) |
 
+<!-- FULL_STACK_DOC_START -->
+## Project positioning and boundaries
+
+`minimax-skills` is the source repository for **12 independently installable Agent Skills**. The package manifest currently reports version `1.1.1`. This repository owns trigger contracts, workflows, references, examples, and quality gates; executable hooks, MCP servers, credential injection, and provider runtimes belong to consuming plugins.
+
+| Confirmed fact | Value | Evidence |
+|---|---|---|
+| Package | `full-aigc-skills/minimax-skills` | `.claude-plugin/plugin.json`, repository remote |
+| Installable skills | 12 | `skills/*/SKILL.md` |
+| Current version | `1.1.1` | `.claude-plugin/plugin.json` |
+| Specification source | OpenSpec | `openspec/config.yaml` |
+| License | Apache-2.0 | `LICENSE` |
+
+### Out of scope
+
+- This package does not replace executable harnesses, MCP services, hooks, or provider clients.
+- Copying `SKILL.md` does not prove host discovery, triggering, or successful execution.
+- Skills do not silently authorize network calls, paid generation, overwrites, uploads, or publishing.
+- Managed copies inside consumer plugins must be updated from immutable releases, not edited directly.
+
+## At a glance
+
+```text
+user task -> name/description discovery -> read SKILL.md
+          -> load only required references/examples/scripts
+          -> execute domain workflow -> collect evidence
+          -> PASS / FAIL / UNVERIFIED
+```
+
+## Verified installation and discovery
+
+```bash
+npx skills add full-aigc-skills/minimax-skills
+npx skills add full-aigc-skills/minimax-skills --skill 3d-animation-short-generator
+npx skills list --json
+```
+
+Use an immutable GitHub Release/tag when pinning a version; do not treat a moving `main` branch as a release. After installation, verify the skill count, names, resources, and target-agent list. Real Codex, ZCode, and Kimi plugin loading remains a separate runtime proof level.
+
+## Package structure and loading
+
+```text
+minimax-skills/
+├── .claude-plugin/plugin.json
+├── skills/<name>/SKILL.md
+├── skills/<name>/references/
+├── skills/<name>/examples/
+├── scripts/
+├── openspec/
+└── LICENSE
+```
+
+Cross-skill handoffs must use the skill name and install command, never a `../sibling-skill/` link: granular installations may contain only one skill.
+
+## Quality, release, and security
+
+```bash
+python3 scripts/lint_skills.py
+```
+
+Before release, verify frontmatter, relative links, bundled resources, TRACE thresholds, manifest versions, and a clean-environment install. Published tags are immutable. A consuming plugin upgrades through a reviewed lock change containing the release tag, peeled SHA, and content digests.
+
+Do not commit credentials, accounts, local absolute paths, or private repository names. Paid, upload, delete, overwrite, and publish operations require explicit authorization.
+
+## Troubleshooting
+
+| Symptom | Check | Resolution |
+|---|---|---|
+| Skill is not discovered | Frontmatter, agent discovery path, refresh requirement | Confirm with `skills list --json` |
+| Granular install has missing references | Cross-skill relative paths | Move required resources into the skill or install the dependency by name |
+| Plugin integrity check fails | Tag, peeled SHA, digest, local-skill manifest | Publish a new source release and update through the sync PR |
+| Tool or credential is unavailable | `compatibility` and runtime prerequisites | Report `UNVERIFIED`; do not claim success |
+| A second generator run changes files | Non-idempotent generation or manifest drift | Block release and repair generation/sorting |
+<!-- FULL_STACK_DOC_END -->
+
 ## 📄 License
 
 Apache 2.0 — see [LICENSE](LICENSE).
